@@ -1,14 +1,18 @@
 require './lib/addressbook'
 
-@all = []
+@contacts = []
 @phones = []
 @emails = []
 @addresses = []
 
 def main_menu
 	puts "Press 'n' to create a new contact, 'p' to add new phone number, 'e' to add an email address, 'a' to add address or press 'l' to list all of your contacts."
+	puts "Press 'v' to view contacts."
 	puts "Press 'x' to exit."
 	main_choice = gets.chomp
+	if main_choice == 'v'
+		puts "Which contact would you like to view?"
+
 	if main_choice == 'n'
 		add_contact
 	elsif main_choice == 'p'
@@ -29,7 +33,7 @@ end
 def add_contact
 	puts "Enter full contact name:"
 	user_name = gets.chomp
-	@all << Addressbook.new(user_name)
+	@contacts << Contact.new(user_name)
 	puts "Contact added."
 	puts "\n\n"
 	main_menu
@@ -37,7 +41,7 @@ end
 
 def list_contacts
 	puts "Here are all your contacts:"
-	@all.each do |contact|
+	@contacts.each do |contact|
 		puts contact.name
 	end
 	puts "\n\n"

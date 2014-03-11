@@ -1,18 +1,18 @@
 require 'rspec'
 require 'addressbook'
 
-describe Addressbook do
+describe Contact do
 	it 'initializes the contact creation' do
-		test_addressbook = Addressbook.new('Mary Poppins')
-		test_addressbook.should be_an_instance of Addressbook
+		test_contact = Contact.new('Mary Poppins')
+		test_contact.should be_an_instance_of Contact
 	end
 
 	it 'creates the contact name' do
-		test_addressbook = Addressbook.new('Mary Poppins')
-		test_addressbook.should eq 'Mary Poppins'
+		test_contact = Contact.new('Mary Poppins')
+		test_contact.should eq 'Mary Poppins'
 	end
 
-	
+
 end
 
 describe Phone do

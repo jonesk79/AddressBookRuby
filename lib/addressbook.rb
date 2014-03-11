@@ -1,4 +1,4 @@
-class Addressbook
+class Contact
 	def initialize name
 		@name = name
 	end
@@ -6,7 +6,6 @@ class Addressbook
 	def name
 		@name
 	end
-	
 end
 
 class Phone 
@@ -20,6 +19,7 @@ class Phone
 end
 
 class Email
+
 	def initialize email
 		@email = email
 	end
