@@ -11,6 +11,8 @@ describe Addressbook do
 		test_addressbook = Addressbook.new('Mary Poppins')
 		test_addressbook.should eq 'Mary Poppins'
 	end
+
+	
 end
 
 describe Phone do
@@ -44,7 +46,7 @@ describe Address do
 	end
 
 	it 'creates the address address' do
-		test_address = Address.new('124 Piedmont Park, Atlanta, GA')
+		test_address = Address.new('street', 'city', 'state')
 		test_address.should eq '124 Piedmont Park, Atlanta, GA'
 	end
 end

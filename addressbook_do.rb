@@ -13,6 +13,10 @@ def main_menu
 		add_contact
 	elsif main_choice == 'p'
 		add_phone
+	elsif main_choice == 'e'
+		add_email
+	elsif main_choice == 'a'
+		add_address
 	elsif main_choice == 'l'
 		list_contacts
 	elsif main_choice == 'x'
