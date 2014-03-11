@@ -2,17 +2,51 @@ require 'rspec'
 require 'addressbook'
 
 describe Contact do
+	before do
+		Contact.clear
+	end
+
 	it 'initializes the contact creation' do
-		test_contact = Contact.new('Mary Poppins')
+		test_contact = Contact.new('Jackie Robinson')
 		test_contact.should be_an_instance_of Contact
 	end
 
 	it 'creates the contact name' do
-		test_contact = Contact.new('Mary Poppins')
-		test_contact.should eq 'Mary Poppins'
+		test_contact = Contact.new('Jackie Robinson')
+		test_contact.should eq 'Jackie Robinson'
 	end
 
+	describe '.all' do
+		it 'is empty at first' do
+			Contact.all.should eq []
+		end
 
+		it 'saves the contact' do
+			test_contact = Contact.new('Jackie Robinson')
+			test_contact.save
+			Contact.all.should eq [test_contact]
+		end
+	end
+
+	describe '.clear' do
+		it 'empties out all the saved contacts' do
+			Contact.new('Mary Poppins').save
+			Contact.clear
+			Contact.all.should eq []
+		end
+	end
+
+	describe '.create' do
+		it 'makes a new instance of Contact' do
+			test_contact = Contact.create("Nia Long")
+			test_contact.should be_an_instance_of Contact
+		end
+
+		it 'saves the Task' do
+			test_contact = Contact.create("Nia Long")
+			Contact.all.should eq [test_contact]
+		end
+	end
 end
 
 describe Phone do

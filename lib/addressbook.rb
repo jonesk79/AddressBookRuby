@@ -1,10 +1,30 @@
 class Contact
+	@@all_contacts == []
+
+	def Contact.all
+		@@all_contacts
+	end
+
+	def Contact.clear
+		@@all_contacts = []
+	end
+
+	def Contact.create name
+		new_contact = Contact.new name
+		new_contact.save
+		new_contact
+	end
+
 	def initialize name
 		@name = name
 	end
 
 	def name
 		@name
+	end
+
+	def save
+		@@all_contacts << self
 	end
 end
 
